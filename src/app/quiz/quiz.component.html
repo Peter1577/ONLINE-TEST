@@ -42,15 +42,7 @@
           Submit Answer
         </button>
         </div>
-      <div *ngIf="isLastQuestion">
-        <button
-          [disabled]="selectedAnswer === null"
-          class="btn btn-success"
-          (click)="retake()"
-        >
-          Retake quiz
-        </button>
-      </div>
+     
       <br><br>
 
       <!-- Button trigger modal -->
