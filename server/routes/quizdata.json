@@ -1,0 +1,54 @@
+[{
+    "question":"Thomas Cup is related to which among the following sports?",
+    "choices":[
+        "Table Tennis",
+        "Lawn Tennis",
+        "Badminton",
+        "Golf"
+    ],
+    "answer" :2
+},
+{
+    "question":"Murugappa Gold Cup is related to which among the following sports?",
+    "choices":[
+         "Football",
+         "Hockey",
+         "Cricket",
+         "Table Tennis"
+    ],  
+    "answer":1
+},
+{
+    "question":"Which Football Club was designated as the FIFA Club of the Century in 2000?",
+    "choices":[
+
+        "Manchester United",
+        "Liverpool",
+        "Real Madrid",
+        "Arsenal"
+    ],
+    "answer" :2
+},
+{
+    "question":"Which is the only Grand Slam tournament to use Clay Court?",
+    "choices":[
+        "US Open",
+        "French Open",
+        "Australian Open",
+        "Wimbledon"
+    ],
+    "answer":1
+},
+{
+    "question":"Where were the first Asian Games held?",
+    "choices":[
+        "Jakarta",
+        "Kathmandu",
+        "New Delhi",
+        "Islamabad"
+    ],
+    "answer":2
+}
+
+
+]

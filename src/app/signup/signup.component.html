@@ -1,0 +1,44 @@
+<div id="bg" class="d-flex align-items-center">
+<div class="container-fluid form-group "  >
+
+<form [formGroup]= "signup" class="form-group" (ngSubmit)= "submit()">
+<div class="row g-3 ">
+  <div class="col-sm-12 col-md-6">
+    <label style="color: white;"  >First Name:</label>
+    <input type="text" class="form-control" formControlName ="Fname" placeholder="First name" name="Fname" aria-label="First name">
+    <span *ngIf="Fname && Fname.touched &&Fname.invalid" style="color: red;"> please enter first name</span>
+  </div>
+  <div class="col-sm-12 col-md-6">
+    <label style="color: white;" >Last Name:</label>
+    <input type="text" class="form-control" formControlName ="Lname" placeholder="Last name" name="Lname"aria-label="Last name">
+    <span *ngIf="Lname && Lname.touched &&Lname.invalid" style="color: red;"> please enter Last name</span>
+  </div>
+ </div>
+ <div class="col-sm-12 col-md-12">
+  <label style="color: white;" >Email:</label>
+  <input type="email" class="form-control" formControlName ="Email" placeholder="Email" name="Email" aria-label="Email">
+  <span *ngIf="Email && Email.touched &&Email.invalid" style="color: red;"> please enter your Email</span>
+ </div>
+ <div class="col-sm-12 col-md-12">
+  <label style="color: white;"  >Create Password:</label>
+  <input type="password" class="form-control" formControlName ="Epwd" placeholder="create Password" name="Epwd" aria-label="create Password">
+  <span *ngIf="Epwd && Epwd.touched &&Epwd.invalid" style="color: red;"> please enter password</span>
+</div>
+<div class="col-sm-12 col-md-12">
+  <label style="color: white;" >Confirm password</label>
+  <input type="password" class="form-control"  formControlName ="Password" placeholder="Confirm password" name="Password" aria-label="Confirm password">
+  <span style="color: red;"  *ngIf="Password && Password.invalid && Password.touched"> Re-enter password</span>
+  <div *ngIf="signup.errors?.['PasswordMissMatch'] && 'password.touched' " >
+    <small class="text-danger">Password not matching</small>
+  </div>
+</div><br>
+
+<div class="text-center" style="color: white;" >
+  
+<button type="submit" [disabled]="signup.invalid" class="btn btn-success " >Signup</button><br>
+Already have an account <a class='link'routerLink="/login">login here</a>
+</div>
+</form>
+</div>
+</div>
+ 

@@ -1,0 +1,41 @@
+<div id="bg" class="d-flex align-items-center">
+  <div class="container-fluid form-group">
+    <form [formGroup]="login" class="form-group" (ngSubmit)="Onsubmit()">
+      <div class="col-sm-12 col-md-12">
+        <label style="color: white">Email:</label>
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Email"
+          name="Email"
+          aria-label="Email"
+          [(ngModel)]="user.Email"
+          #Email ="ngModel"
+        />
+      </div>
+      <div class="col-sm-12 col-md-12">
+        <label style="color: white">Enter Password:</label>
+        <input
+          type="password"
+          class="form-control"
+          placeholder="enter Password"
+          name="Epwd"
+          aria-label="Enter Password"
+          [(ngModel)]="user.Password"
+          #Password ="ngModel"
+        />
+      </div>
+
+      <div class="text-center" style="color: white">
+        <button
+          type="submit"
+          [disabled]="login.invalid"
+          class="btn btn-success"
+        >
+          Login</button
+        ><br />
+        Already have an account <a class="link" routerLink="/signup">signup</a>
+      </div>
+    </form>
+  </div>
+</div>

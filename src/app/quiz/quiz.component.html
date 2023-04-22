@@ -1,0 +1,103 @@
+<br />
+<div class="container-fluid max-auto" style="max-width: 1200px">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="card">
+        <div class="card-header">
+          <ol>
+            <h3>
+              <li>{{ presentquestion.question }}</li>
+            </h3>
+          </ol>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li
+            class="list-group-item"
+            *ngFor="let choice of presentquestion.choices; let i = index"
+          >
+            <input
+              class="form-check-input"
+              type="radio"
+              name="choice"
+              id="choice{{ i }}"
+              value="i"
+              [ngClass]="{ active: selectedAnswer === i, disabled: answered }"
+              (click)="answer(i)"
+            />
+
+            {{ choice }}
+          </li>
+        </ul>
+      </div>
+      <br />
+      <div *ngIf="answered">
+        <button class="btn btn-success" (click)="nextquestion()">Next</button>
+      </div>
+      <div *ngIf="!answered">
+        <button
+          [disabled]="selectedAnswer === null"
+          class="btn btn-success"
+          (click)="validateanswer()"
+        >
+          Submit Answer
+        </button>
+        </div>
+      <div *ngIf="isLastQuestion">
+        <button
+          [disabled]="selectedAnswer === null"
+          class="btn btn-success"
+          (click)="retake()"
+        >
+          Retake quiz
+        </button>
+      </div>
+      <br><br>
+
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        *ngIf="isLastQuestion"
+        data-bs-target="#exampleModal"
+      >
+        See Results
+      </button>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Results</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              Your score is {{ score }} out of {{ question.length }}.
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
