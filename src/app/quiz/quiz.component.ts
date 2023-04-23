@@ -16,8 +16,9 @@ export class QuizComponent implements OnInit {
   answered : boolean = false;
   isLastQuestion:boolean = false;
   isCorrect:any| boolean ;
-  
+  showResultsButton:boolean = true;
   score:number = 0;
+  showResetButton = false;
 
   constructor(private DS: DataserviceService , private router:Router) {}
   ngOnInit(): void {
@@ -48,6 +49,7 @@ export class QuizComponent implements OnInit {
   nextquestion():void{
    if(this.presentquestionindex === this.question.length -1){
     this.isLastQuestion = true;
+    this.showResetButton = false;
    }
    else{
     this.presentquestionindex++;
@@ -58,8 +60,12 @@ export class QuizComponent implements OnInit {
   }
 
   validateanswer() {
+    this.isCorrect = false;
+    this.showResetButton = false;
     if(this.selectedAnswer === this.presentquestion.answer){
+
       this.score ++;    
+      
 
       console.log(this.score);
       
@@ -67,8 +73,9 @@ export class QuizComponent implements OnInit {
   this.answered =true;
 }
 
-retake():void{
-  this.router.navigate(['/quiz']);
+reset():void{
+  this.router.navigate(['/signup'])
+
 }
 }
 

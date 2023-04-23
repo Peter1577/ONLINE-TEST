@@ -18,6 +18,7 @@ import { QuizComponent } from './quiz/quiz.component';
     SignupComponent,
     LoginComponent,
     QuizComponent,
+    
 
   ],
   imports: [
