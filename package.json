@@ -9,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
-    "engine":{
+    "engines":{
       "node":"16.x"
     },
   "private": true,
