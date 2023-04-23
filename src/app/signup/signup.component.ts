@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { PasswordMatch } from '../validators/passwordvalidation';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { PasswordMatch } from '../validators/passwordvalidation';
 })
 export class SignupComponent {
 
-  constructor(private DS:DataserviceService){}
+  constructor(private DS:DataserviceService , private route :Router){}
 signup = new FormGroup({
   Fname : new FormControl('',[Validators.required]),
   Lname : new FormControl('',[Validators.required]),
@@ -38,9 +39,21 @@ get Epwd (){
  }
 
 submit(){
-  this.DS.postuserinfo(this.signup.value).subscribe(data=>alert("registration sucessful"),
-  )
-  console.table(this.signup.value)
+
+  this.DS.postuserinfo(this.signup.value).subscribe({
+    next: (data) => {
+      if (data) {
+        alert('registration successful you been redirected to login page');
+          this.route.navigate(['/login']);
+      }
+    },
+    error: (err) => {
+      if (err) {
+        alert('registration failed');
+    
+      }
+    },
+  });
 }
 myimage:string ="assests/images/pxfuel.jpg";
 }

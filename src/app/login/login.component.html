@@ -1,6 +1,8 @@
 <div id="bg" class="d-flex align-items-center">
   <div class="container-fluid form-group">
     <form [formGroup]="login" class="form-group" (ngSubmit)="Onsubmit()">
+      
+        <legend class="text-center " style="color: white" >Login</legend>
       <div class="col-sm-12 col-md-12">
         <label style="color: white">Email:</label>
         <input
@@ -36,6 +38,7 @@
         ><br />
         Already have an account <a class="link" routerLink="/signup">signup</a>
       </div>
+    
     </form>
   </div>
 </div>
