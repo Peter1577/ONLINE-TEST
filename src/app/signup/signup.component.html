@@ -23,7 +23,7 @@
  <div class="col-sm-12 col-md-12">
   <label style="color: white;"  >Create Password:</label>
   <input type="password" class="form-control" formControlName ="Epwd" placeholder="create Password" name="Epwd" aria-label="create Password">
-  <span *ngIf="Epwd && Epwd.touched &&Epwd.invalid" style="color: red;"> please enter password</span>
+  <span *ngIf="Epwd && Epwd.touched &&Epwd.invalid" style="color: red;"> please enter min 8 characters password</span>
 </div>
 <div class="col-sm-12 col-md-12">
   <label style="color: white;" >Confirm password</label>
