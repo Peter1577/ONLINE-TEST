@@ -18,9 +18,11 @@ app.get('*',(req,res)=>{
 )
 
 
+const port =process.env.PORT || 1000;
 
-app.listen(1000 , function(req,res){
 
-    console.log('http://localhost:1000')
+app.listen(port , function(req,res){
+
+    console.log('listen port ${port}')
 }
 );
